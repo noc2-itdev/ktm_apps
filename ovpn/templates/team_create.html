@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block page_content %}
+<div class="wrapper">
+    <div class="container-fluid">
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Create New Team:</h3>
+                <form class="form-horizontal" action="/ovpn/team_create" method="post">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-right">Tên nhóm (*): </label>
+                        <div class="col-10">
+                        {{ form.name }}
+                        </div>
+                    </div>
+                     <div class="form-group row">
+                        <label class="col-2 col-form-label text-right">Trạng thái (*): </label>
+                        <div class="col-10">
+                        {{ form.block }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label text-right">Mô tả: </label>
+                        <div class="col-10">
+                        {{ form.desc }}
+                        </div>
+                    </div>
+                    <div class="form-group mb-0 justify-content-end row">
+                        <div class="col-10">
+                            <button type="submit" class="btn btn-primary ">Đồng ý</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+<div class="wrapper">
+    <div class="container-fluid">
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="btn-group pull-right m-t-20">
+                    <button type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Settings </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                        <!-- item-->
+                        <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                    </div>
+                </div>
+                <h4 class="page-title">TEAM INDEX</h4>
+            </div>
+        </div>
+        <!-- end page title end breadcrumb -->
+        <div class="row">
+        	<div class="col-12">
+                        <div class="card-box">
+
+                            <div class="table-rep-plugin">
+                                <div class="table-responsive" data-pattern="priority-columns">
+                                    <table id="tech-companies-1" class="table  table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th> Tên nhóm  </th>
+                                            <th data-priority="1">Mô tả</th>
+                                            <th data-priority="3">Trạng thái</th>
+                                            <th data-priority="1">Ngày tạo</th>
+                                            <th data-priority="3">Ngày cập nhật</th>
+                                            <th><a href="{% url 'team_create' %}" class="label btn-sm btn-primary">Tạo nhóm <i class="ti-plus"></i> </a></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                       	{% for team in teams %}
+                                        <tr>
+                                            <td>{{ team.name }}</td>
+											<td>{{ team.desc }}</td>
+											<td>{{ team.block }}</td>
+											<td>{{ team.created }}</td>
+											<td>{{ team.updated }}</td>
+                                            <td> 
+                                                <a><i class="ti-pencil-alt text-purple"></i></a>&nbsp&nbsp
+                                                <a><i class="ti-trash text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+
+            </div> <!-- end container -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_custom %}
+<script>
+    $(function() {
+        $('.table-responsive').responsiveTable({
+            addDisplayAllBtn: 'btn btn-secondary'
+        });
+    });
+</script>
+{% endblock %}
