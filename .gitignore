@@ -1,3 +1,4 @@
 theme/
 static/
 sftp-config.json
+ktm_apps/settings.py
