@@ -6,9 +6,12 @@
         <!-- Page-Title -->
         <div class="row">
             <div class="col-sm-12">
-                <h3>Create New Team:</h3>
-                <form class="form-horizontal" action="{% url 'team_create' %}" method="post">
+                <h3>Update Team Info:</h3>
+                <form class="form-horizontal" action="{% url 'team_update' team.pk%}" method="post">
                     {% csrf_token %}
+                    {{ form.errors }}
+                    {{ form.non_field_errors }}
+                    {{ form.non_form_errors }}
                     <div class="form-group row">
                         <label class="col-2 col-form-label text-right">Tên nhóm (*): </label>
                         <div class="col-10">

@@ -49,7 +49,7 @@
 											<td>{{ team.created }}</td>
 											<td>{{ team.updated }}</td>
                                             <td> 
-                                                <a><i class="ti-pencil-alt text-purple"></i></a>&nbsp&nbsp
+                                                <a href="{% url 'team_update' team.pk%}"><i class="ti-pencil-alt text-purple"></i></a>&nbsp&nbsp
                                                 <a><i class="ti-trash text-danger"></i></a>
                                             </td>
                                         </tr>

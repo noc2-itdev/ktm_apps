@@ -1,6 +1,7 @@
 from django import forms
+from .models import Team
 
-class TeamForm(forms.Form):
+class TeamForm(forms.ModelForm):
     name = forms.CharField(
         max_length=60,
         widget=forms.TextInput(
@@ -27,3 +28,8 @@ class TeamForm(forms.Form):
         choices=(blocks),
         initial='3', required = True
     )
+
+    class Meta:
+        model = Team
+        fields = "__all__"
+        # fields = ['name','desc','block']
